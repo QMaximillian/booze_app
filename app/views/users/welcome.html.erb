@@ -3,9 +3,10 @@
 <!-- landing page / where user will end up once they log in -->
 
 <% if @user %>
-	<h1 style="">Welcome <%= @user.name %>!</h1><br />
-
-  <%= button_to 'Add New Alcohol', new_alcohol_path, :method => :get, class: 'btn btn-secondary'  %><br>
+	<section style="margin-left: 2.5rem;">
+    <br>
+  <h1 style="">Welcome <%= @user.name %>!</h1><br />
+  <%= button_to 'Add New Alcohol', new_alcohol_path, :method => :get, class: 'btn btn-secondary'  %><br></section>
 
 
 <% else %>
