@@ -8,11 +8,11 @@ class UsersController < ApplicationController
 
 	def welcome
 		@user = current_user
-		@rand_alcohol_ids = Alcohol.rand_n(3, 1..Alcohol.all.count)
-		@first = Alcohol.find(@rand_alcohol_ids[0])
-		@second = Alcohol.find(@rand_alcohol_ids[1])
-		@third = Alcohol.find(@rand_alcohol_ids[2])
-			
+		# @rand_alcohol_ids = Alcohol.rand_n(3, 1..Alcohol.all.count)
+		# @first = Alcohol.find(@rand_alcohol_ids[0])
+		# @second = Alcohol.find(@rand_alcohol_ids[1])
+		# @third = Alcohol.find(@rand_alcohol_ids[2])
+		@random_alcs = Alcohol.all.sample(3)
 	end
 
 	def create

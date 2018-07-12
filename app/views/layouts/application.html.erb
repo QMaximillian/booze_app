@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand" style="background-color: #c0392b;">
+    <nav class="navbar navbar-expand" style="background-color: #0062cc87;">
   <a class="navbar-brand" href="/"><img src="/goodlibeROSE.jpg"></a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,24 +20,24 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <b><a class="nav-link" href="/wines" style="color: #000;">Wines<span class="sr-only">(current)</span></a></b>
+        <b><a class="nav-link gl-nav-bar-item" href="/wines">Wines<span class="sr-only">(current)</span></a></b>
       </li>
       <li class="nav-item active">
-        <b><a class="nav-link" href="/beers" style="color: #000;">Beer<span class="sr-only">(current)</span></a></b>
+        <b><a class="nav-link gl-nav-bar-item" href="/beers">Beer<span class="sr-only">(current)</span></a></b>
       </li>
       <li class="nav-item active">
-        <b><a class="nav-link" href="/liquors" style="color: #000;">Liquor<span class="sr-only">(current)</span></a></b>
+        <b><a class="nav-link gl-nav-bar-item" href="/liquors">Liquor<span class="sr-only">(current)</span></a></b>
       </li>
       <li class="nav-item active">
-        <b><a class="nav-link" href="/alcohols" style="color: #000;">View All<span class="sr-only">(current)</span></a></b>
+        <b><a class="nav-link gl-nav-bar-item" href="/alcohols">View All<span class="sr-only">(current)</span></a></b>
       </li>
 
     <% if current_user %>
     <li class="nav-item active">
-        <a class="nav-link" href="/users/<%= current_user.id %>">Your Profile<span class="sr-only">(current)</span></a>
+        <a class="nav-link gl-nav-bar-item" href="/users/<%= current_user.id %>">Your Profile<span class="sr-only">(current)</span></a>
       </li>
      <li class="nav-item active">
-        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+        <a class="nav-link gl-nav-bar-item" href="/logout">Logout<span class="sr-only">(current)</span></a>
       </li>
       <% end %>
 

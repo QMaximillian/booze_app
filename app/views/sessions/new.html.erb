@@ -1,11 +1,16 @@
-<h3>Login:</h3>
+
+<div style="text-align: center;">
+<h3>Login</h3>
 <%= form_tag sessions_path do %>
   <%= label_tag "Email" %>
   <%= text_field_tag :email %><br>
   <%= label_tag "Password" %>
   <%= password_field_tag :password %><br>
-  <%= submit_tag "Login" %><br>
-
-  <hr> 
+  <%= button_to "Login", welcome_path, :method => :get, class: 'btn btn-secondary' %>
+</div>
+  <hr>
+  <div style="text-align: center;">
   <p><%= link_to "Click here to create an account", new_user_path %></p>
 <% end %>
+</div>
+</div>

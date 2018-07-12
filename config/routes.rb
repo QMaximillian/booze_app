@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :stores
   resources :store_alcohols
 
-  root 'users#welcome'
+  root 'users#welcome', as: 'welcome'
   # get '/', to: 'users#welcome', as: 'welcome'
   get '/login', to: 'sessions#new', as: 'login'
   # get '/home', to: 'users#home', as: 'user_home'

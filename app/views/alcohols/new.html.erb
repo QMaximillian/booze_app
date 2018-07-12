@@ -18,6 +18,7 @@
 	<%= f.label :notes %>
 	<%= f.text_area :notes %>
   <br/><br/>
-	<%= f.submit "Add to Profile" %>
+<!-- 	<%= f.submit "Add to Profile" %> -->
+<%= button_to "Add to Profile", user_path(current_user.id), :method => :get, class: 'btn btn-secondary' %>
 
   <% end %>
