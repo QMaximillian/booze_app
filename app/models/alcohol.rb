@@ -6,6 +6,7 @@ class Alcohol < ApplicationRecord
 # year
 # notes
   validates :brand, :variety, uniqueness: {scope: :year, message: "should only have one vintage!"}
+  validates :year, inclusion:{ in: 1900..Date.today.year }
   validates :brand, presence: true
   validates :category, presence: true
   # validates
@@ -15,7 +16,7 @@ class Alcohol < ApplicationRecord
   has_many :store_alcohols
   has_many :stores, through: :store_alcohols
 
-  
+
   #validate for unique entries?
 
 	def self.search(search)
@@ -24,7 +25,7 @@ class Alcohol < ApplicationRecord
 	  end
 	end
 
-	
+
 
 
 end
