@@ -1,6 +1,13 @@
-<h2>Hi, <%= @user.name %>. Here's a list of your saved items:</h2>
+<h2 style="margin-left: 40px; margin-top: 20px; text-align: center;">Hi, <%= @user.name %>. Here's a list of your saved items:</h2>
 <br />
-<h3> Wines </h3>
+
+<div style="text-align: center;">
+<p><%= button_to "Add New Item", new_alcohol_path, :method => :get, class: 'btn btn-secondary'%></p>
+</div>
+
+
+<h3 style="margin-left: 40px; margin-top: 20px;"> Wine </h3>
+<ul>
 <ul>
 	<% @user.alcohols.each do |alcohol| %>
 			<% if alcohol.category == 'Wine' %>
@@ -8,8 +15,10 @@
 			<% end %>
 	<% end %>
 </ul>
+</ul>
 
-<h3> Beer </h3>
+<h3 style="margin-left: 40px; margin-top: 20px;"> Beer </h3>
+<ul>
 <ul>
 	<% @user.alcohols.each do |alcohol| %>
 		<% if alcohol.category == 'Beer' %>
@@ -17,9 +26,11 @@
 		<% end %>
 	<% end %>
 </ul>
+</ul>
 
 
-<h3> Liquor </h3>
+<h3 style="margin-left: 40px; margin-top: 20px;"> Liquor </h3>
+<ul>
 <ul>
 	<% @user.alcohols.each do |alcohol| %>
 		<% if alcohol.category == 'Liquor' %>
@@ -27,7 +38,14 @@
 		<% end %>
 	<% end %>
 </ul>
+</ul>
 
 <br />
-<%= button_to "Add New Item", new_alcohol_path, :method => :get, class: 'btn btn-secondary'%>
+
+
+
+<br />
+<div style="text-align: center;">
+<%= button_to 'Delete Account', user_path(@user), :method => :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-secondary'  %>
+</div>
 

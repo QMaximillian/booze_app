@@ -1,6 +1,15 @@
-require 'set'
-
 class Alcohol < ApplicationRecord
+
+# brand
+# category
+# variety
+# year
+# notes
+  validates :brand, :variety, uniqueness: {scope: :year, message: "should only have one vintage!"}
+  validates :brand, presence: true
+  validates :category, presence: true
+  # validates
+
   has_many :user_alcohols
   has_many :users, through: :user_alcohols
   has_many :store_alcohols

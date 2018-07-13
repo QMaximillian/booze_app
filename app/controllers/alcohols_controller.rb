@@ -5,7 +5,11 @@ class AlcoholsController < ApplicationController
 	end
 
 	def create
-		@alcohol = Alcohol.new(alcohol_params)
+		@alcohol = Alcohol.find_by(brand: alcohol_params[:brand], variety: alcohol_params[:variety])
+		if @alcohol
+		else
+			@alcohol = Alcohol.new(alcohol_params)
+		end
 
 		if @alcohol.save
 			UserAlcohol.create(alcohol_id: @alcohol.id, user_id: current_user.id)
@@ -15,39 +19,79 @@ class AlcoholsController < ApplicationController
 		end
 	end
 
-	def add_to_user
-
-	end
 
 	def wines
 		@wines = Alcohol.all.select do |alcohol|
 			alcohol.category == "Wine"
 		end
+
+		@wine_var_arr = 
+			@wines.map do |wine| 
+				wine.variety 
+			end.uniq	
+
+
 	end
 
 	def beers
 		@beers = Alcohol.all.select do |alcohol|
 			alcohol.category == "Beer"
 		end
+
+		@beer_var_arr = 
+			@beers.map do |beer| 
+				beer.variety 
+			end.uniq
 	end
 
 	def liquors
 		@liquors = Alcohol.all.select do |alcohol|
 			alcohol.category == "Liquor"
 		end
+
+		@liquor_var_arr = 
+			@liquors.map do |liquor| 
+				liquor.variety 
+			end.uniq	
+		
 	end
 
 	def index
-		@alcohols = Alcohol.all
+		@alcohols = Alcohol.all	
 
+		@liquors = Alcohol.all.select do |alcohol|
+			alcohol.category == "Liquor"
+		end
+
+		@liquor_var_arr = 
+			@liquors.map do |liquor| 
+				liquor.variety 
+			end.uniq	
+
+		@beers = Alcohol.all.select do |alcohol|
+			alcohol.category == "Beer"
+		end
+
+		@beer_var_arr = 
+			@beers.map do |beer| 
+				beer.variety 
+			end.uniq
+			
+		@wines = Alcohol.all.select do |alcohol|
+			alcohol.category == "Wine"
+		end
+
+		@wine_var_arr = 
+			@wines.map do |wine| 
+				wine.variety 
+			end.uniq	
+
+		@stores = Store.all
 		if params[:search]
 			@alcohols = Alcohol.search(params[:search])
 		end
 	end
 
-	def delete
-
-	end
 
 	def show
 		@alcohol = Alcohol.find(params[:id])

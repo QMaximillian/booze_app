@@ -1,8 +1,17 @@
 
-	<h1>Beer</h1>
-
+<h1 style="margin-left: 40px; margin-top: 20px; text-align: center;">Beer</h1>
+<p>
 	<ul>
-<% @beers.each do |beer| %>
-	<li><%= link_to beer.brand, alcohol_path(beer) %> - <%= beer.variety %>
-<% end %>
+		<% @beer_var_arr.each do |beer_variety| %>
+			<h3><%= beer_variety %></h3>
+			<ul>
+				<% @beers.each do |beer| %>
+					<% if beer.variety == beer_variety %>
+						<li><%= link_to beer.brand, alcohol_path(beer) %></li>
+					<% end %>
+				<% end %>
+			</ul>
+			<hr>
+		<% end %>
 	</ul>
+</p>

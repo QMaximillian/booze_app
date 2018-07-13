@@ -1,17 +1,62 @@
-
-	<h1>Alcohol</h1>
-
+<h1 style="margin-left: 40px; margin-top: 20px; text-align: center;">All</h1>
+<div style="margin-top: 30px;">
+<h2 style="text-decoration: underline; margin-left: 40px; margin-top: 20px;">Wine</h2>
+	<p>
 	<ul>
-		<% @alcohols.each do |alcohol| %>
-			<p><b><%= alcohol.brand %> - <%= alcohol.variety %></b></p>
-				<% if !alcohol.stores.empty? %>
-					<p>Sold at:</p>
-						<% alcohol.stores.each do |store| %>
-							<%= link_to store.name, store_path(store) %><br>
-							<% end %>
-						<br>
-						<hr>
-						<br>
-					<% end %>
-		<% end %>
+	<% @wine_var_arr.each do |wine_variety| %>
+		<h3><%= wine_variety %></h3>
+		<ul>
+			<% @wines.each do |wine| %>
+				<% if wine.variety == wine_variety %>
+					<li><%= link_to wine.brand, alcohol_path(wine) %></li>
+				<% end %>
+			<% end %>
+		</ul>
+		<hr>
+	<% end %>
 	</ul>
+</p>
+
+
+
+<h2 style="text-decoration: underline; margin-left: 40px; margin-top: 20px;">Beer</h2>
+<p>
+	<ul>
+	<% @beer_var_arr.each do |beer_variety| %>
+		<h3><%= beer_variety %></h3>
+		<ul>
+			<% @beers.each do |beer| %>
+				<% if beer.variety == beer_variety %>
+					<li><%= link_to beer.brand, alcohol_path(beer) %></li>
+				<% end %>
+			<% end %>
+		</ul>
+		<hr>
+	<% end %>
+	</ul>
+</p>
+
+
+
+
+<h2 style="text-decoration: underline; margin-left: 40px; margin-top: 20px;">Liquor</h2>
+	<p>
+	<ul>
+	<% @liquor_var_arr.each do |liquor_variety| %>
+		<h3><%= liquor_variety %></h3>
+		<ul>
+			<% @liquors.each do |liquor| %>
+				<% if liquor.variety == liquor_variety %>
+					<li><%= link_to liquor.brand, alcohol_path(liquor) %></li>
+				<% end %>
+			<% end %>
+		</ul>
+		<hr>
+	<% end %>
+</ul>
+	</p>
+
+
+<!-- <hr style="border-top: 1px solid rgba(0, 0, 0, 0.3); margin-right: 3rem;">
+</ul> -->
+
